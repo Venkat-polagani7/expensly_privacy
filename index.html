@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Expensly</title>
+  <meta name="description" content="Privacy Policy for Expensly - SMS Expense Tracker. Learn how we collect, use, and protect your financial data." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Privacy Policy — Expensly" />
+  <meta property="og:description" content="Learn how Expensly handles your data with transparency and care." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:       #5B67FF;
+      --accent-light: #7C87FF;
+      --accent-glow:  rgba(91, 103, 255, 0.35);
+      --bg:           #0A0B14;
+      --surface:      rgba(255,255,255,0.035);
+      --surface-hover:rgba(255,255,255,0.065);
+      --border:       rgba(255,255,255,0.08);
+      --text:         #E8EAF6;
+      --text-muted:   rgba(232,234,246,0.55);
+      --green:        #4CAF82;
+      --amber:        #FFB547;
+      --radius:       20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated Background ──────────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% -10%, rgba(91,103,255,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(124,135,255,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(76,175,130,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Floating Orbs ────────────────────────────────────────────────────── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      animation: float 8s ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 400px; height: 400px;
+      background: rgba(91,103,255,0.08);
+      top: -100px; left: -100px;
+      animation-delay: 0s;
+    }
+    .orb-2 {
+      width: 300px; height: 300px;
+      background: rgba(76,175,130,0.06);
+      bottom: 10%; right: -80px;
+      animation-delay: -3s;
+    }
+    .orb-3 {
+      width: 200px; height: 200px;
+      background: rgba(255,181,71,0.05);
+      top: 50%; left: 60%;
+      animation-delay: -6s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    /* ── Layout ───────────────────────────────────────────────────────────── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Hero Header ──────────────────────────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+
+    .logo-ring {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(91,103,255,0.15);
+      margin-bottom: 28px;
+      animation: pulse-logo 3s ease-in-out infinite;
+      font-size: 44px;
+    }
+    @keyframes pulse-logo {
+      0%, 100% { box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(91,103,255,0.15); }
+      50% { box-shadow: 0 0 60px rgba(91,103,255,0.5), 0 0 120px rgba(91,103,255,0.25); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .last-updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px;
+      backdrop-filter: blur(12px);
+    }
+
+    /* ── Quick Nav Pills ──────────────────────────────────────────────────── */
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .quick-nav a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 18px;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(12px);
+    }
+    .quick-nav a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: rgba(91,103,255,0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    /* ── Section Cards ────────────────────────────────────────────────────── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+      animation: fadeUp 0.6s ease both;
+    }
+    .section:hover {
+      background: var(--surface-hover);
+      border-color: rgba(91,103,255,0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section:nth-child(1) { animation-delay: 0.05s; }
+    .section:nth-child(2) { animation-delay: 0.10s; }
+    .section:nth-child(3) { animation-delay: 0.15s; }
+    .section:nth-child(4) { animation-delay: 0.20s; }
+    .section:nth-child(5) { animation-delay: 0.25s; }
+    .section:nth-child(6) { animation-delay: 0.30s; }
+    .section:nth-child(7) { animation-delay: 0.35s; }
+    .section:nth-child(8) { animation-delay: 0.40s; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .icon-blue   { background: rgba(91,103,255,0.15);  }
+    .icon-green  { background: rgba(76,175,130,0.15);  }
+    .icon-amber  { background: rgba(255,181,71,0.15);  }
+    .icon-pink   { background: rgba(255,100,130,0.15); }
+    .icon-teal   { background: rgba(0,188,212,0.15);   }
+    .icon-purple { background: rgba(156,39,176,0.15);  }
+
+    .section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .section p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── Info Chips ───────────────────────────────────────────────────────── */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.02em;
+    }
+    .chip-green  { background: rgba(76,175,130,0.15); color: #4CAF82; border: 1px solid rgba(76,175,130,0.25); }
+    .chip-blue   { background: rgba(91,103,255,0.15); color: var(--accent-light); border: 1px solid rgba(91,103,255,0.25); }
+    .chip-amber  { background: rgba(255,181,71,0.15); color: var(--amber); border: 1px solid rgba(255,181,71,0.25); }
+
+    /* ── Data Table ───────────────────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+    .data-table th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 12px 14px;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+    .data-table td:first-child {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    /* ── Highlight Box ────────────────────────────────────────────────────── */
+    .highlight-box {
+      background: rgba(91,103,255,0.08);
+      border: 1px solid rgba(91,103,255,0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .highlight-box strong { color: var(--accent-light); }
+
+    .warning-box {
+      background: rgba(255,181,71,0.08);
+      border: 1px solid rgba(255,181,71,0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .warning-box strong { color: var(--amber); }
+
+    /* ── Contact Card ─────────────────────────────────────────────────────── */
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 12px 22px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .contact-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(91,103,255,0.45);
+    }
+
+    /* ── Footer ───────────────────────────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    .footer strong { color: var(--accent-light); }
+
+    /* ── Divider ──────────────────────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 20px 0;
+    }
+
+    /* ── Responsive ───────────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .section { padding: 28px 24px; }
+      .quick-nav a { font-size: 12px; padding: 7px 14px; }
+      .data-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating orbs for depth -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="wrapper">
+
+    <!-- ── Hero ──────────────────────────────────────────────────────────── -->
+    <header class="hero">
+      <div class="logo-ring">💸</div>
+      <div>
+        <div class="hero-badge">📋 Legal Document</div>
+      </div>
+      <h1>Privacy Policy</h1>
+      <p>We believe your financial data belongs to <em>you</em>. Here's exactly how Expensly handles it — transparently, clearly, and without jargon.</p>
+      <div class="last-updated">
+        🗓 &nbsp; Last Updated: June 2, 2025 &nbsp;·&nbsp; Effective: June 2, 2025
+      </div>
+    </header>
+
+    <!-- ── Quick Nav ──────────────────────────────────────────────────────── -->
+    <nav class="quick-nav" aria-label="Section navigation">
+      <a href="#overview">Overview</a>
+      <a href="#data-collected">Data Collected</a>
+      <a href="#sms">SMS Access</a>
+      <a href="#firebase">Cloud Sync</a>
+      <a href="#biometric">Biometric</a>
+      <a href="#local-storage">Local Storage</a>
+      <a href="#your-rights">Your Rights</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+
+      <!-- ── 1. Overview ──────────────────────────────────────────────────── -->
+      <section class="section" id="overview">
+        <div class="section-header">
+          <div class="section-icon icon-blue">🛡️</div>
+          <h2>Overview &amp; Scope</h2>
+        </div>
+        <p>
+          This Privacy Policy describes how <strong>Expensly</strong> ("we", "our", or "the App") — developed by <strong>Venkat Polagani</strong> — collects, uses, and protects your information when you use the Expensly mobile application on Android.
+        </p>
+        <p>
+          By installing or using Expensly, you agree to the practices described in this policy. If you disagree with any part, please discontinue use of the application.
+        </p>
+        <div class="chips">
+          <span class="chip chip-green">✓ No data sold to third parties</span>
+          <span class="chip chip-green">✓ Transparent & open practices</span>
+          <span class="chip chip-blue">🇮🇳 India-based developer</span>
+        </div>
+      </section>
+
+      <!-- ── 2. Data Collected ─────────────────────────────────────────────── -->
+      <section class="section" id="data-collected">
+        <div class="section-header">
+          <div class="section-icon icon-teal">📊</div>
+          <h2>Information We Collect</h2>
+        </div>
+        <p>Expensly collects only what is strictly necessary to provide its core functionality:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Purpose</th>
+              <th>Stored Where</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SMS transaction alerts</td>
+              <td>Auto-extract expense amounts, merchants &amp; dates</td>
+              <td>On-device only (encrypted)</td>
+            </tr>
+            <tr>
+              <td>Expense records</td>
+              <td>Track spending history &amp; generate charts</td>
+              <td>On-device + Cloud (Firebase)</td>
+            </tr>
+            <tr>
+              <td>Account display name</td>
+              <td>Personalise the app experience</td>
+              <td>Firebase Auth + local cache</td>
+            </tr>
+            <tr>
+              <td>Biometric hash</td>
+              <td>App lock authentication</td>
+              <td>Android Keystore (never leaves device)</td>
+            </tr>
+            <tr>
+              <td>App preferences</td>
+              <td>Remember your settings &amp; onboarding state</td>
+              <td>On-device (SharedPreferences)</td>
+            </tr>
+            <tr>
+              <td>Anonymous user ID</td>
+              <td>Link expense data to your account for sync</td>
+              <td>Firebase Auth (anonymous)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-box">
+          <strong>We do NOT collect:</strong> precise location, contacts, camera access, advertising IDs, or any data unrelated to expense tracking.
+        </div>
+      </section>
+
+      <!-- ── 3. SMS Access ─────────────────────────────────────────────────── -->
+      <section class="section" id="sms">
+        <div class="section-header">
+          <div class="section-icon icon-amber">💬</div>
+          <h2>SMS Access &amp; Reading</h2>
+        </div>
+        <p>
+          Expensly requests the <code>READ_SMS</code> and <code>RECEIVE_SMS</code> permissions to automatically detect and parse <strong>bank transaction SMS alerts</strong> (e.g., "₹500 debited from your account at Swiggy").
+        </p>
+
+        <div class="warning-box">
+          <strong>Important:</strong> Expensly only reads SMS messages that match known financial institution patterns. Personal messages, OTPs, and unrelated SMS content are <em>never read, stored, or transmitted</em>.
+        </div>
+
+        <div class="divider"></div>
+
+        <p>Specifically:</p>
+        <div class="chips" style="flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-green" style="white-space:nowrap">✓ Allowed</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">Bank debit/credit alerts, transaction confirmations from registered financial institutions</span>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-amber" style="white-space:nowrap">✗ Never read</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">Personal conversations, OTPs, promotional messages, or any non-financial SMS</span>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-green" style="white-space:nowrap">✓ On-device</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">SMS parsing happens entirely on your device — raw SMS content is <em>never sent to our servers</em></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4. Firebase / Cloud Sync ─────────────────────────────────────── -->
+      <section class="section" id="firebase">
+        <div class="section-header">
+          <div class="section-icon icon-blue">☁️</div>
+          <h2>Cloud Sync &amp; Firebase</h2>
+        </div>
+        <p>
+          Expensly uses <strong>Google Firebase</strong> to sync your expense records across devices and enable backup. We use:
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Firebase Service</th><th>What It Does</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Firebase Authentication</td>
+              <td>Anonymous sign-in to link your data without requiring personal details</td>
+            </tr>
+            <tr>
+              <td>Cloud Firestore</td>
+              <td>Stores your expense records (amount, merchant, date, category) for sync &amp; backup</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-box">
+          <strong>Anonymous Authentication:</strong> Expensly uses Firebase Anonymous Auth — you are never required to provide an email or password. A random anonymous UID is assigned automatically.
+        </div>
+
+        <p style="margin-top:16px;">
+          Firebase services are governed by <a href="https://policies.google.com/privacy" style="color:var(--accent-light);" target="_blank" rel="noopener">Google's Privacy Policy</a>. Your data is stored on Firebase servers located in the United States or other Google Cloud regions.
+        </p>
+      </section>
+
+      <!-- ── 5. Biometric ──────────────────────────────────────────────────── -->
+      <section class="section" id="biometric">
+        <div class="section-header">
+          <div class="section-icon icon-purple">🔐</div>
+          <h2>Biometric &amp; App Lock</h2>
+        </div>
+        <p>
+          Expensly offers an optional <strong>biometric app lock</strong> (fingerprint / face unlock) to protect your financial data. This feature uses Android's <code>BiometricPrompt</code> API.
+        </p>
+
+        <div class="chips" style="flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-green" style="white-space:nowrap">✓ On-device</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">Biometric data (fingerprint/face) is processed entirely by the Android OS — <em>Expensly never has access to your biometric data</em></span>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-green" style="white-space:nowrap">✓ Secure</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">Authentication credentials are stored in the Android Keystore hardware-backed secure element</span>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-blue" style="white-space:nowrap">Optional</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">You can disable the app lock at any time from Settings</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 6. Local Storage & Encryption ────────────────────────────────── -->
+      <section class="section" id="local-storage">
+        <div class="section-header">
+          <div class="section-icon icon-green">🔒</div>
+          <h2>Local Storage &amp; Encryption</h2>
+        </div>
+        <p>
+          All expense data stored on your device is <strong>encrypted with AES-256</strong> using the <a href="https://pub.dev/packages/hive" style="color:var(--accent-light);" target="_blank" rel="noopener">Hive</a> database with an encryption cipher. The encryption key is:
+        </p>
+
+        <div class="chips" style="flex-direction:column; gap:10px; margin-bottom:16px;">
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-green" style="white-space:nowrap">AES-256</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">Generated uniquely on first launch — never the same across devices</span>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-green" style="white-space:nowrap">Keystore</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">Stored in Android Keystore — hardware-backed, inaccessible to other apps</span>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <span class="chip chip-blue" style="white-space:nowrap">Local only</span>
+            <span style="font-size:0.9rem; color:var(--text-muted);">The encryption key never leaves your device — even we cannot decrypt your local data</span>
+          </div>
+        </div>
+
+        <p>If you uninstall the app, all locally stored data is permanently deleted.</p>
+      </section>
+
+      <!-- ── 7. Your Rights ────────────────────────────────────────────────── -->
+      <section class="section" id="your-rights">
+        <div class="section-header">
+          <div class="section-icon icon-pink">⚖️</div>
+          <h2>Your Rights &amp; Choices</h2>
+        </div>
+        <p>You have full control over your data:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Right</th><th>How to Exercise</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Delete all data</td>
+              <td>Uninstall the app (removes local data) and contact us to delete cloud data</td>
+            </tr>
+            <tr>
+              <td>Revoke SMS access</td>
+              <td>Android Settings → Apps → Expensly → Permissions → Disable SMS</td>
+            </tr>
+            <tr>
+              <td>Disable cloud sync</td>
+              <td>App Settings → Cloud Sync → Disable</td>
+            </tr>
+            <tr>
+              <td>Disable biometric lock</td>
+              <td>App Settings → Security → App Lock → Disable</td>
+            </tr>
+            <tr>
+              <td>Export your data</td>
+              <td>App → Export (CSV/share) feature</td>
+            </tr>
+            <tr>
+              <td>Request data deletion</td>
+              <td>Email us at <a href="mailto:venkatgoud991@gmail.com" style="color:var(--accent-light);">venkatgoud991@gmail.com</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-box">
+          <strong>Children's Privacy:</strong> Expensly is not intended for children under 13. We do not knowingly collect personal information from children under 13.
+        </div>
+      </section>
+
+      <!-- ── 8. Contact ─────────────────────────────────────────────────────── -->
+      <section class="section" id="contact">
+        <div class="section-header">
+          <div class="section-icon icon-blue">📬</div>
+          <h2>Contact Us</h2>
+        </div>
+        <p>
+          If you have any questions, concerns, or data deletion requests regarding this Privacy Policy, please reach out. We'll respond within 48 hours.
+        </p>
+
+        <p><strong style="color:var(--text);">Developer:</strong> Venkat Polagani</p>
+        <p><strong style="color:var(--text);">GitHub:</strong> <a href="https://github.com/Venkat-polagani7" style="color:var(--accent-light);" target="_blank" rel="noopener">github.com/Venkat-polagani7</a></p>
+
+        <a href="mailto:venkatgoud991@gmail.com" class="contact-link" id="contact-email-btn">
+          ✉️ &nbsp; venkatgoud991@gmail.com
+        </a>
+
+        <div class="divider" style="margin-top:28px;"></div>
+
+        <p style="font-size:0.85rem; margin-top:4px;">
+          We reserve the right to update this Privacy Policy. When we do, we will revise the "Last Updated" date at the top of this page. Continued use of the app after changes constitutes acceptance of the new policy.
+        </p>
+      </section>
+
+    </main>
+
+    <!-- ── Footer ──────────────────────────────────────────────────────────── -->
+    <footer class="footer">
+      <p>© 2025 <strong>Expensly</strong> by Venkat Polagani &nbsp;·&nbsp; All rights reserved</p>
+      <p style="margin-top:8px;">Made with ❤️ in India &nbsp;·&nbsp; <a href="mailto:venkatgoud991@gmail.com" style="color:var(--accent-light); text-decoration:none;">venkatgoud991@gmail.com</a></p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Smooth scroll + active nav highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.quick-nav a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.style.color = '');
+          const active = document.querySelector(`.quick-nav a[href="#${entry.target.id}"]`);
+          if (active) {
+            active.style.color = 'var(--accent-light)';
+            active.style.borderColor = 'var(--accent)';
+            active.style.background = 'rgba(91,103,255,0.1)';
+          }
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Entrance animations using IntersectionObserver
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(s => {
+      s.style.opacity = '0';
+      s.style.transform = 'translateY(24px)';
+      s.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      fadeObserver.observe(s);
+    });
+  </script>
+
+</body>
+</html>
